@@ -119,7 +119,7 @@ toolbox.precache(['/assets/images/Ap_icon.png']);
 9/ Update `assets` in your `.angular-cli.json` file : 
 ```
         "manifest.json",
-        "sw-toolbox-config.ts",
+        "sw-toolbox-config.js",
         "service-worker.js"
 ```
 
