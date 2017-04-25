@@ -8,4 +8,26 @@ if (environment.production) {
   enableProdMode();
 }
 
+if (navigator['serviceWorker']) {
+
+    navigator['serviceWorker'].register('service-worker.js')
+      .then((reg) => {
+        console.log('Service Worker registered', reg);
+
+        if (!navigator['serviceWorker'].controller) {
+          console.log('Service Worker is the latest version');
+          return;
+        }
+
+        reg.addEventListener('updatefound', () => {
+          console.log('updatefound!');
+          window['updatefound'] = true;
+        });
+
+      }).catch((err) => {
+      console.log('Service Worker registration failed: ', err);
+    });
+
+  }
+
 platformBrowserDynamic().bootstrapModule(AppModule);
