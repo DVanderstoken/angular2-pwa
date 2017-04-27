@@ -26,6 +26,10 @@ module.exports = {
         {
             urlPattern: /.*10.10.106.32.*/,
             handler: "cacheFirst"
+        },
+        {
+            urlPattern: /.*swapi.*/,
+            handler: "cacheFirst"
         }
     ]
 };

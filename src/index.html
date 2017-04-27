@@ -14,7 +14,24 @@
 </head>
 
 <body>
-  <app-root>Loading...</app-root>
+  <app-root>
+    <div *ngIf="people.length !== 87">
+      <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+      </div>
+    </div>
+  </app-root>
+
+  <noscript>
+    <h4 style="font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica;">
+      Sorry, JavaScript needs to be enabled in order to run this application.
+    </h4>
+  </noscript>
+
 </body>
 
 </html>

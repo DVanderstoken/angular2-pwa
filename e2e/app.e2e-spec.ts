@@ -7,8 +7,11 @@ describe('offline-poc App', () => {
     page = new OfflinePOCPage();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
-  });
+  /*
+    it('should display message saying app works', () => {
+      page.navigateTo();
+      expect(page.getParagraphText()).toEqual('app works!');
+    });
+    */
+
 });

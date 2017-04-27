@@ -1,3 +1,18 @@
-<h1>
-  {{title}}
-</h1>
+<div *ngIf="people.length !== 87">
+    <div class="spinner">
+      <div class="rect1"></div>
+      <div class="rect2"></div>
+      <div class="rect3"></div>
+      <div class="rect4"></div>
+      <div class="rect5"></div>
+    </div>
+</div>
+
+<div *ngIf="people.length === 87">
+    <h3>Liste des personnages Star Wars :</h3>
+    <ol>
+      <li *ngFor="let perso of people">
+        {{ perso.name }} 
+      </li>
+    </ol>
+  </div>
