@@ -1,0 +1,8 @@
+<div *ngIf="people.length === 87">
+    <h3>Star Wars Characters :</h3>
+    <ol>
+        <li *ngFor="let perso of people" (click)="onSelect(perso)">
+            {{ perso.name }}
+        </li>
+    </ol>
+</div>
