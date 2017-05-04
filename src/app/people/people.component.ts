@@ -1,12 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
-import { Http, Response } from '@angular/http';
-import { Router } from '@angular/router';
+import { PeopleService } from './people.service';
 
 @Component({
   selector: 'app-people',
   templateUrl: './people.component.html',
-  styleUrls: ['./people.component.css']
+  styleUrls: ['./people.component.css'],
+  providers: [PeopleService]
 })
 export class PeopleComponent implements OnInit, OnDestroy {
 
@@ -15,14 +15,13 @@ export class PeopleComponent implements OnInit, OnDestroy {
   loading: boolean;
   selectedPeople;
 
-  constructor(private _http: Http,
-              private router: Router) {
+  constructor(private _peopleService: PeopleService) {
   }
 
   ngOnInit() {
     this.loading = true;
     for (let indice = 0; indice < 9 ; indice++ ) {
-      this.getPeople(indice + 1).subscribe(data => {
+      this._peopleService.getPeople(indice + 1).subscribe(data => {
         this.people = this.people.concat(data);
       });
     }
@@ -30,12 +29,6 @@ export class PeopleComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-  }
-
-  getPeople(page: number = 1): Observable<any> {
-    return this._http.get('https://swapi.co/api/people/?page=' + page)
-      .map((result: Response) => result.json()['results'])
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
   onSelect(perso) {
