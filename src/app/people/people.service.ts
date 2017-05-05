@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 
@@ -13,6 +13,5 @@ export class PeopleService {
             .map((result: Response) => result.json()['results'])
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
-
 
 }

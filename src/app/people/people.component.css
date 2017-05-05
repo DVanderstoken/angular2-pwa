@@ -48,3 +48,28 @@ ol > li:hover {
     cursor: pointer; 
     cursor: hand;
 }
+
+.title {
+    background-color: #550000;
+    color: #FFAAAA;
+    border: 1px solid #FFAAAA;
+    border-right: 0;
+}
+
+.value {
+    background-color: #FFAAAA;
+    color: #550000;
+    border: 1px solid #550000;
+    border-left: 0;
+}
+
+table, tr, td {
+	font-family:"Helvetica Neue", Arial, sans-serif;
+    border: 0;
+    border-spacing: 0;
+    padding: 4px;
+}
+
+td {
+    width: 140px !important;
+}

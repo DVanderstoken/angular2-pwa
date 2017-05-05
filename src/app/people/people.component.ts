@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 import { PeopleService } from './people.service';
 
@@ -8,19 +8,19 @@ import { PeopleService } from './people.service';
   styleUrls: ['./people.component.css'],
   providers: [PeopleService]
 })
-export class PeopleComponent implements OnInit, OnDestroy {
+export class PeopleComponent implements OnInit {
 
   people = [];
+  selectedPeople;
   private _page = 1;
   loading: boolean;
-  selectedPeople;
 
   constructor(private _peopleService: PeopleService) {
   }
 
   ngOnInit() {
     this.loading = true;
-    for (let indice = 0; indice < 9 ; indice++ ) {
+    for (let indice = 0; indice < 9; indice++) {
       this._peopleService.getPeople(indice + 1).subscribe(data => {
         this.people = this.people.concat(data);
       });
@@ -28,10 +28,7 @@ export class PeopleComponent implements OnInit, OnDestroy {
     this.loading = false;
   }
 
-  ngOnDestroy() {
-  }
-
   onSelect(perso) {
-      console.log(perso);
+    this.selectedPeople = (this.selectedPeople === undefined || this.selectedPeople['name'] !== perso['name']) ? perso : undefined;
   }
 }

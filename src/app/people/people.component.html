@@ -3,6 +3,39 @@
     <ol>
         <li *ngFor="let perso of people" (click)="onSelect(perso)">
             {{ perso.name }}
+            <div *ngIf="selectedPeople !== undefined && selectedPeople['name'] === perso['name']">
+                <table>
+                    <tr>
+                        <td class="title">gender</td>
+                        <td class="value">{{ perso.gender }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">birth year</td>
+                        <td class="value">{{ perso.birth_year }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">height</td>
+                        <td class="value">{{ perso.height }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">mass</td>
+                        <td class="value">{{ perso.mass }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">eye color</td>
+                        <td class="value">{{ perso.eye_color }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">hair color</td>
+                        <td class="value">{{ perso.hair_color }}</td>
+                    </tr>
+                    <tr>
+                        <td class="title">skin color</td>
+                        <td class="value">{{ perso.skin_color }}</td>
+                    </tr>
+                </table>
+            </div>
         </li>
+
     </ol>
 </div>
