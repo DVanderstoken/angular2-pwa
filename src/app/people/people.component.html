@@ -1,7 +1,7 @@
 <div *ngIf="people.length === 87">
     <h3>Star Wars Characters :</h3>
     <ol>
-        <li *ngFor="let perso of people" (click)="onSelect(perso)">
+        <li *ngFor="let perso of people | paginate: { itemsPerPage: 10, currentPage: p }" (click)="onSelect(perso)">
             {{ perso.name }}
             <div *ngIf="selectedPeople !== undefined && selectedPeople['name'] === perso['name']">
                 <table>
@@ -36,6 +36,6 @@
                 </table>
             </div>
         </li>
-
     </ol>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

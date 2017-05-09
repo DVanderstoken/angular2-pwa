@@ -8,6 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { PeopleComponent } from './people/people.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 const appRoutes: Routes = [
   {
     path: 'people',
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
