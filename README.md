@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Use yarn as default NPM packages manager
+## [Optional] Use yarn as default NPM packages manager
 
 ```
 ng set --global packageManager=yarn
@@ -143,3 +143,35 @@ sw-precache
 sw-toolbox
 ![sw-toolbox](./documentation/images/sw-toolbox.png)
 
+## Paginate list
+
+```
+npm install --save ngx-pagination
+```
+
+See full documentation @ `https://github.com/michaelbromley/ngx-pagination`
+
+Update `app.module.ts` file :
+```
+(...)
+import {NgxPaginationModule} from 'ngx-pagination';
+(...)
+@NgModule({
+  (...)
+  imports: [
+    (...)
+    NgxPaginationModule
+  ],
+  (...)
+})
+```
+
+Update your template file, `people.component.html` file here : 
+```
+<ol>
+        <li *ngFor="let perso of people | paginate: { itemsPerPage: 10, currentPage: p }" (click)="onSelect(perso)">
+            {{ perso.name }}
+        </li>
+    </ol>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+```
