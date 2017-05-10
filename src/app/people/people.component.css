@@ -73,3 +73,8 @@ table, tr, td {
 td {
     width: 140px !important;
 }
+
+table > caption {
+	font-family:"Helvetica Neue", Arial, sans-serif;
+    color: #550000;
+}

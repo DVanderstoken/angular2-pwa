@@ -3,39 +3,68 @@
     <ol>
         <li *ngFor="let perso of people | paginate: { itemsPerPage: 10, currentPage: p }" (click)="onSelect(perso)">
             {{ perso.name }}
-            <div *ngIf="selectedPeople !== undefined && selectedPeople['name'] === perso['name']">
-                <table>
-                    <tr>
-                        <td class="title">gender</td>
-                        <td class="value">{{ perso.gender }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">birth year</td>
-                        <td class="value">{{ perso.birth_year }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">height</td>
-                        <td class="value">{{ perso.height }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">mass</td>
-                        <td class="value">{{ perso.mass }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">eye color</td>
-                        <td class="value">{{ perso.eye_color }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">hair color</td>
-                        <td class="value">{{ perso.hair_color }}</td>
-                    </tr>
-                    <tr>
-                        <td class="title">skin color</td>
-                        <td class="value">{{ perso.skin_color }}</td>
-                    </tr>
-                </table>
-            </div>
         </li>
     </ol>
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
+</div>
+
+<style>
+    .my-pagination /deep/ .ngx-pagination .current {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.8em;
+        color: #FFAAAA;
+        background-color: #550000;
+    }
+
+    .my-pagination /deep/ .ngx-pagination li {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.8em;
+        color: #550000;
+    }
+
+    .my-pagination /deep/ .ngx-pagination a {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.8em;
+        color: #550000;
+    }
+
+    .my-pagination /deep/ .ngx-pagination .disabled {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 0.8em;
+        color: #FFAAAA;
+    }
+</style>
+
+<div *ngIf="selectedPeople !== undefined">
+    <table>
+        <caption>Detailed information for {{ selectedPeople.name }}</caption>
+        <tr>
+            <td class="title">gender</td>
+            <td class="value">{{ selectedPeople.gender }}</td>
+        </tr>
+        <tr>
+            <td class="title">birth year</td>
+            <td class="value">{{ selectedPeople.birth_year }}</td>
+        </tr>
+        <tr>
+            <td class="title">height</td>
+            <td class="value">{{ selectedPeople.height }}</td>
+        </tr>
+        <tr>
+            <td class="title">mass</td>
+            <td class="value">{{ selectedPeople.mass }}</td>
+        </tr>
+        <tr>
+            <td class="title">eye color</td>
+            <td class="value">{{ selectedPeople.eye_color }}</td>
+        </tr>
+        <tr>
+            <td class="title">hair color</td>
+            <td class="value">{{ selectedPeople.hair_color }}</td>
+        </tr>
+        <tr>
+            <td class="title">skin color</td>
+            <td class="value">{{ selectedPeople.skin_color }}</td>
+        </tr>
+    </table>
 </div>

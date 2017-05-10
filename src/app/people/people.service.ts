@@ -1,9 +1,11 @@
-import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http, Response } from '@angular/http';
 
 @Injectable()
 export class PeopleService {
+
+    selectedPeople;
 
     constructor(private _http: Http) {
     }

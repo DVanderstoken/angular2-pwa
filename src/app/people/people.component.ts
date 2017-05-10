@@ -19,12 +19,15 @@ export class PeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.loading = true;
+
     for (let indice = 0; indice < 9; indice++) {
       this._peopleService.getPeople(indice + 1).subscribe(data => {
         this.people = this.people.concat(data);
       });
     }
+
     this.loading = false;
   }
 
