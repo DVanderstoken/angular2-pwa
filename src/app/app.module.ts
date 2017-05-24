@@ -12,13 +12,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 
 const appRoutes: Routes = [
   {
-    path: 'people',
-    component: PeopleComponent
-  },
-  {
     path: '',
-    redirectTo: '/people',
-    pathMatch: 'full'
+    component: PeopleComponent
   }
 ];
 

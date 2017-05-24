@@ -1,12 +1,12 @@
 {
   "name": "Offline POC",
-  "short_name": "Offline POC",
+  "short_name": "OffPOC",
   "icons": [
     {
             "src": "/assets/images/Ap_icon.png",
-            "sizes": "200x200",
+            "sizes": "512x512",
             "type": "image/png",
-            "density": 0.75
+            "density": 1
         }
   ],
   "theme_color": "#000000",
