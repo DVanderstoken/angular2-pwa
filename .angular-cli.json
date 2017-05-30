@@ -12,7 +12,8 @@
         "favicon.ico",
         "manifest.json",
         "sw-toolbox-config.js",
-        "service-worker.js"
+        "service-worker.js",
+        "ios.manifest"
       ],
       "index": "index.html",
       "main": "main.ts",

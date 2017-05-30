@@ -1,0 +1,29 @@
+CACHE MANIFEST
+# This is a comment.
+# Cache manifest version 0.0.1
+# If you change the version number in this comment,
+# the cache manifest is no longer byte-for-byte
+# identical.
+ 
+NETWORK:
+# All URLs that start with the following lines
+# are whitelisted.
+https://swapi.co/api/people/
+ 
+CACHE:
+# Additional items to cache. 
+/assets/images/Ap_icon.png
+/favicon.ico
+/index.html
+/inline.bundle.js
+/main.bundle.js
+/manifest.json
+/offlinepoc-0.0.1.tgz
+/polyfills.bundle.js
+/service-worker.js
+/styles.bundle.css
+/sw-toolbox-config.js
+/vendor.bundle.js
+ 
+FALLBACK:
+# none

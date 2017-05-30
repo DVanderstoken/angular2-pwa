@@ -2,7 +2,7 @@ module.exports = {
     navigateFallback: '/index.html',
     stripPrefix: 'dist',
     root: 'dist/',
-    staticFileGlobs: ['dist/**/*.{js,html,css,png,jpg,gif,json,svg,ttf,woff,woff2}'],
+    staticFileGlobs: ['dist/**/*.{js,html,css,png,jpg,gif,json,svg,ttf,woff,woff2,manifest}'],
     importScripts: ['sw-toolbox-config.js'],
     runtimeCaching: [
         {
