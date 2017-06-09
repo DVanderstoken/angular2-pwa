@@ -263,7 +263,7 @@ Lighthouse example :
 This application has been tested on :
 |         |                          |              |                     |
 |---------|--------------------------|--------------|---------------------|
-| __device__  | Samsung Galaxy Note 10.1 | Apple iPad 2 | HTC One             |
+| __device__  | __Samsung Galaxy Note 10.1__ | __Apple iPad 2__ | __HTC One__ |
 | __OS__      | Androïd 4.1.2            | iOS 9.3.5    | Androïd 5.0.2       |
 | __browser__ | Chrome 58.0.3029.83      | Safari 9.0   | Chrome 58.0.3029.83 |
 |
