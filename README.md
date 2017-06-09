@@ -175,3 +175,99 @@ Update your template file, `people.component.html` file here :
     </ol>
     <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
 ```
+
+## IOS support
+
+See full documentation @ `https://developer.apple.com/library/content/documentation/iPhone/Conceptual/SafariJSDatabaseGuide/OfflineApplicationCache/OfflineApplicationCache.html`
+
+Use the HTML5 Offline Application cache :
+
+1/ modify the `index.html` file to declare the manifest file :
+```
+(...)
+<html lang="fr" manifest="ios.manifest">
+(...)
+```
+
+The file __must__ be served with a MIME type of `text/cache-manifest` and the file name __must__ end in `.manifest` 
+
+2/ create a manifest file in your `src` folder :
+```
+CACHE MANIFEST
+ 
+NETWORK:
+https://swapi.co/api/people/
+ 
+CACHE:
+/assets/images/Ap_icon.png
+/favicon.ico
+/index.html
+/inline.bundle.js
+/main.bundle.js
+/manifest.json
+/offlinepoc-0.0.1.tgz
+/polyfills.bundle.js
+/service-worker.js
+/styles.bundle.css
+/sw-toolbox-config.js
+/vendor.bundle.js
+ 
+FALLBACK:
+```
+
+The `CACHE` section __should__ list every needed resource to operate correctly when offline.
+
+The `NETWORK` section list resources to access using the network.
+
+The `FALLBACK` section is __optional__ and list URL pair. The second URL is the fallback of the first one.
+
+3/ Integrate the HTML5 Offline Application Cache in your application :
+```
+const appCache = window['applicationCache'];
+    appCache.addEventListener('error', (e: any) => alert('Error: Cache failed to update!' + e.message), false);
+
+    window.addEventListener('load', function (_) {
+      appCache.addEventListener('updateready', function (e) {
+        if (appCache.status === appCache.UPDATEREADY) {
+          // Browser downloaded a new app cache.
+          if (confirm(`Une nouvelle version de l'application est disponible.`)) {
+            window.location.reload();
+          } else {
+            window.location.reload();
+          }
+        } else {
+          // Manifest didn't changed. Nothing new to server.
+        }
+      }, false);
+
+    }, false);
+```
+
+
+### Warning !
+
+You can not cache external data (json data from REST API's) !
+
+
+That's all !
+
+## How to verify ?
+
+Use the Google Chrome lighthouse extension. It validate the aspects of a Progressive Web App (see `https://developers.google.com/web/progressive-web-apps/checklist`).
+
+Lighthouse example :
+![Lighthouse example](./documentation/images/lighthouse_exemple_resultat_analyse.png)
+
+## How to test ?
+
+This application has been tested on :
+|         |                          |              |                     |
+|---------|--------------------------|--------------|---------------------|
+| __device__  | Samsung Galaxy Note 10.1 | Apple iPad 2 | HTC One             |
+| __OS__      | Androïd 4.1.2            | iOS 9.3.5    | Androïd 5.0.2       |
+| __browser__ | Chrome 58.0.3029.83      | Safari 9.0   | Chrome 58.0.3029.83 |
+|
+
+see :
+- crowd testing
+- dogfooding
